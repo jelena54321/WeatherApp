@@ -33,6 +33,15 @@ class FutureWeatherForecastViewCell: UITableViewCell {
         buildViews()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dayLabel.text = ""
+        weatherIcon.image = nil
+        maxTemperatureLabel.text = ""
+        minTemperatureLabel.text = ""
+    }
+    
     func setUp(withModel model: FutureWeatherForecastModel) {
         dayLabel.text = FutureWeatherForecastViewCell.dateFormatter.string(from: model.timestamp)
         if let imageIconUrl = model.weatherIcon {

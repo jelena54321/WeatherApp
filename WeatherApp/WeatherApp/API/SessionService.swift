@@ -6,7 +6,6 @@
 import RxSwift
 import RxCocoa
 import Reachability
-//import RxReachability
 
 class SessionService {
     
@@ -18,9 +17,11 @@ class SessionService {
     func request(urlString: String,
                  parameters: [String: String]) -> Observable<Result<Data, APIError>> {
         
-        var urlRequest = URLRequest(
-            url: SessionService.configureUrl(urlString: urlString, parameters: parameters)
-        )
+        guard let url = SessionService.configureUrl(urlString: urlString, parameters: parameters) else {
+            return Observable.just(.failure(.invalidURL))
+        }
+        
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue(
             "application/json",
@@ -47,14 +48,17 @@ class SessionService {
             }
     }
     
-    static func configureUrl(urlString: String, parameters: [String: String]) -> URL {
-        var urlComponents = URLComponents(string: urlString)!
+    private static func configureUrl(urlString: String, parameters: [String: String]) -> URL? {
+        guard var urlComponents = URLComponents(string: urlString) else {
+            return nil
+        }
+        
         urlComponents.queryItems = []
         for (name, value) in parameters {
             urlComponents.queryItems?.append(URLQueryItem(name: name, value: value))
         }
         
-        return urlComponents.url!
+        return urlComponents.url
     }
     
 }

@@ -26,7 +26,7 @@ class CityWeatherForecastService {
                 ]
             )
             .map { result -> Result<Int, APIError> in
-                if case Result.failure(let error) = result {
+                if case .failure(let error) = result {
                     return .failure(error)
                 }
                 
@@ -37,14 +37,14 @@ class CityWeatherForecastService {
                             options: []
                         )
                     ) {
-                        return Result.success(cityId)
+                        return .success(cityId)
                     } else {
-                        return Result.failure(.parseError)
+                        return .failure(.parseError)
                     }
                 } catch {
-                    return Result.failure(.serializationError)
+                    return .failure(.serializationError)
                 }
-            }.catchErrorJustReturn(Result.failure(.noInternetConnection))
+            }.catchErrorJustReturn(.failure(.noInternetConnection))
     }
         
     func fetchWeatherForecast(forCityId cityId: Int) -> Observable<Result<WeatherForecastModel, APIError>> {
@@ -58,20 +58,20 @@ class CityWeatherForecastService {
                 ]
             )
             .map { result -> Result<WeatherForecastModel, APIError> in
-                if case Result.failure(let error) = result {
+                if case .failure(let error) = result {
                     return .failure(error)
                 }
                 
                 do {
                     return
-                        try Result.success(
+                        try .success(
                             JSONDecoder().decode(
                                 WeatherForecastModel.self,
                                 from: try result.get()
                             )
                     )
                 } catch {
-                    return Result.failure(APIError.serializationError)
+                    return .failure(APIError.serializationError)
                 }
             }
     }

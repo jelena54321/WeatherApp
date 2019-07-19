@@ -40,14 +40,14 @@ extension CitiesWeatherForecastViewCell {
         viewsContainer.addSubview(maxTemperatureLabel)
         
         minTemperatureLabel = UILabel()
-        minTemperatureLabel.font = UIFont.minTempRegular()
+        minTemperatureLabel.font = .minTempRegular()
         minTemperatureLabel.textAlignment = .right
         viewsContainer.addSubview(minTemperatureLabel)
         minTemperatureLabel.autoSetDimension(.width, toSize: 50.0)
         minTemperatureLabel.autoPinEdge(.trailing, to: .trailing, of: viewsContainer, withOffset: -20.0)
         minTemperatureLabel.autoPinEdge(.bottom, to: .bottom, of: maxTemperatureLabel)
         
-        maxTemperatureLabel.font = UIFont.maxTempRegular()
+        maxTemperatureLabel.font = .maxTempRegular()
         maxTemperatureLabel.textAlignment = .right
         maxTemperatureLabel.autoPinEdge(.trailing, to: .leading, of: minTemperatureLabel, withOffset: -10.0)
         maxTemperatureLabel.autoAlignAxis(.horizontal, toSameAxisOf: viewsContainer)

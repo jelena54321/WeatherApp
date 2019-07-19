@@ -34,7 +34,7 @@ class BackButton: UIButton {
         arrowImageIcon.autoSetDimension(.height, toSize: 20.0)
         
         backLabel.text = "back"
-        backLabel.font = UIFont.backButtonLight()
+        backLabel.font = .backButtonLight()
         addSubview(backLabel)
         backLabel.autoPinEdge(.leading, to: .trailing, of: arrowImageIcon)
         backLabel.autoPinEdge(.top, to: .top, of: self)

@@ -9,7 +9,7 @@ extension FutureWeatherForecastViewCell {
     
     func buildViews() {
         dayLabel = UILabel()
-        dayLabel.font = UIFont.defaultFont()
+        dayLabel.font = .defaultFont()
         addSubview(dayLabel)
         dayLabel.autoPinEdge(.leading, to: .leading, of: self, withOffset: 20.0)
         dayLabel.autoPinEdge(.top, to: .top, of: self)
@@ -24,7 +24,7 @@ extension FutureWeatherForecastViewCell {
         weatherIcon.autoAlignAxis(.horizontal, toSameAxisOf: self)
         
         minTemperatureLabel = UILabel()
-        minTemperatureLabel.font = UIFont.defaultBoldFont()
+        minTemperatureLabel.font = .defaultBoldFont()
         minTemperatureLabel.textColor = .lightGray
         addSubview(minTemperatureLabel)
         minTemperatureLabel.autoPinEdge(.trailing, to: .trailing, of: self, withOffset: -20.0)
@@ -33,7 +33,7 @@ extension FutureWeatherForecastViewCell {
         minTemperatureLabel.autoSetDimension(.width, toSize: 40.0)
         
         maxTemperatureLabel = UILabel()
-        maxTemperatureLabel.font = UIFont.defaultBoldFont()
+        maxTemperatureLabel.font = .defaultBoldFont()
         addSubview(maxTemperatureLabel)
         maxTemperatureLabel.autoPinEdge(.trailing, to: .leading, of: minTemperatureLabel, withOffset: -20.0)
         maxTemperatureLabel.autoPinEdge(.top, to: .top, of: self)

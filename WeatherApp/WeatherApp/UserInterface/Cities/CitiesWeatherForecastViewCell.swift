@@ -27,6 +27,15 @@ class CitiesWeatherForecastViewCell: UITableViewCell {
         buildViews()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        weatherIcon.image = nil
+        cityLabel.text = ""
+        maxTemperatureLabel.text = ""
+        minTemperatureLabel.text = ""
+    }
+    
     func setUp(withModel model: DailyWeatherForecastModel) {
         cityLabel.text = model.city
         maxTemperatureLabel.text = String(

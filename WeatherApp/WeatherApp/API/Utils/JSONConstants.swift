@@ -1,5 +1,5 @@
 //
-//  AppConstants.swift
+//  JSONConstants.swift
 //  WeatherApp
 //
 

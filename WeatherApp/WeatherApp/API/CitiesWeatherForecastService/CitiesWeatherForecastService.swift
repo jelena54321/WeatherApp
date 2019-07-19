@@ -26,7 +26,7 @@ class CitiesWeatherForecastService {
                 ]
             )
             .map { result -> Result<[DailyWeatherForecastModel], APIError> in
-                if case Result.failure(let error) = result {
+                if case .failure(let error) = result {
                     return .failure(error)
                 }
             
@@ -34,14 +34,14 @@ class CitiesWeatherForecastService {
                 do {
                     json = try JSONSerialization.jsonObject(with: try result.get(), options: [])
                 } catch {
-                    return Result.failure(APIError.serializationError)
+                    return .failure(APIError.serializationError)
                 }
                 
                 guard let parsedData = CitiesWeatherForecastService.parseCities(json: json) else {
-                    return Result.failure(APIError.parseError)
+                    return .failure(APIError.parseError)
                 }
                 
-                return Result.success(parsedData)
+                return .success(parsedData)
             }
     }
     

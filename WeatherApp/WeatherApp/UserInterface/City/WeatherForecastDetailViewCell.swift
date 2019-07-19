@@ -22,6 +22,13 @@ class WeatherForecastDetailViewCell: UITableViewCell {
         buildViews()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        detailLabel.text = ""
+        detailValueLabel.text = ""
+    }
+    
     func setUp(withModel model: WeatherForecastDetailModel) {
         detailLabel.text = model.weatherDetail
         detailValueLabel.text = model.weatherDetailValue

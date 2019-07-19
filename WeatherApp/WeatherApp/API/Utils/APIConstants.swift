@@ -1,5 +1,5 @@
 //
-//  APIError.swift
+//  APIConstants.swift
 //  WeatherApp
 //
 
@@ -11,6 +11,7 @@ enum APIError: Error {
     case noInternetConnection
     case couldNotDecodeData
     case unknownError
+    case invalidURL
 }
 
 enum HttpResponse: Int {

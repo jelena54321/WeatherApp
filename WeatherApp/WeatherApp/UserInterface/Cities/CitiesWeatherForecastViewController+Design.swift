@@ -20,7 +20,7 @@ extension CitiesWeatherForecastViewController {
         
         searchTextField = UITextField()
         view.addSubview(searchTextField)
-        searchTextField.font = UIFont.defaultFont()
+        searchTextField.font = .defaultFont()
         searchTextField.placeholder = "Search city..."
         searchTextField.autoPinEdge(.top, to: .top, of: view, withOffset: 70.0)
         searchTextField.autoPinEdge(.leading, to: .leading, of: view, withOffset: 20.0)

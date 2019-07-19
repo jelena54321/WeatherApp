@@ -26,7 +26,7 @@ extension CityWeatherForecastViewController {
         
         weatherDescriptionLabel = UILabel()
         view.addSubview(weatherDescriptionLabel)
-        weatherDescriptionLabel.font = UIFont.defaultFont()
+        weatherDescriptionLabel.font = .defaultFont()
         weatherDescriptionLabel.textAlignment = .center
         weatherDescriptionLabel.autoPinEdge(.top, to: .bottom, of: cityLabel, withOffset: 5.0)
         weatherDescriptionLabel.autoSetDimension(.height, toSize: 40.0)
@@ -40,7 +40,7 @@ extension CityWeatherForecastViewController {
         
         temperatureLabel = UILabel()
         view.addSubview(temperatureLabel)
-        temperatureLabel.font = UIFont.tempRegular()
+        temperatureLabel.font = .tempRegular()
         temperatureLabel.textAlignment = .center
         temperatureLabel.autoPinEdge(.top, to: .bottom, of: weatherIconImageView, withOffset: 10.0)
         temperatureLabel.autoAlignAxis(.vertical, toSameAxisOf: view)
